@@ -13,7 +13,7 @@ This repository contains the backend core API for 1CS project.
 
 ## How to run
 
-1. Install [`node.js`](https://nodejs.org/en/download/) and `yarn`() package manager on your computer.
+1. Install [`node.js`](https://nodejs.org/en/download/) and [`yarn`](https://classic.yarnpkg.com/en/docs/install/) package manager on your computer.
 
 2. Clone the repository and change directory to it :
 
