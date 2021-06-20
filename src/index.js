@@ -6,6 +6,7 @@ registerGlobals()
 
 const express = require("express")
 const { createServer } = require("http")
+const cors = require("cors")
 
 const registerLogger = require("./config/logger")
 registerLogger()
@@ -25,8 +26,9 @@ const main = async () => {
 
     const app = express()
 
-    /* Register express JSON middleware */
+    /* Register middleware */
     app.use(express.json())
+    app.use(cors())
 
     /* Register routes */
     const routePrefix = global.config.ROUTE_PREFIX
@@ -35,7 +37,7 @@ const main = async () => {
     app.use(`${routePrefix}/patient`, patientRoutes)
     app.use(`${routePrefix}/surveys`, surveyRoutes)
 
-    /* Register middleware */
+    /* Register custom middleware */
     app.use(notFound)
     app.use(errorHandler)
 
