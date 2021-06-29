@@ -75,6 +75,8 @@ const getSurveyResultById = asyncHandler(async (req, res) => {
  */
 const postSurveyResult = asyncHandler(async (req, res) => {
   const { surveyId, answers } = req.body
+  console.log("answers")
+  console.log(answers)
   if (!surveyId || !answers) {
     res.status(400)
     throw new Error(global.errorMessages.REQUIRED_PARAMETER)
@@ -91,15 +93,40 @@ const postSurveyResult = asyncHandler(async (req, res) => {
 
   const patient = await getPatientByUserId(req.user._id)
 
+  // surveyResult = new SurveyResult()
+  // surveyResult.patient = ObjectId(patient._id)
+  // surveyResult.survey = ObjectId(surveyId)
+  // surveyResult.answers = answers
+  // const createdSurveyResult = await surveyResult.save()
   const createdSurveyResult = await SurveyResult.create({
     patient: ObjectId(patient._id),
     survey: ObjectId(surveyId),
     answers,
   })
+  console.log("createdSurveyResult")
+  console.log(createdSurveyResult)
+  console.log("createdSurveyResult.answers")
+  console.log(createdSurveyResult.answers)
+  // for (let i = 0; i < answers.length; i++) {
+  //   const answer = createdSurveyResult[i]
+  //   createdSurveyResult
+  // }
+  // createdSurveyResult.answers = createdSurveyResult.answers.map((answer, i) => {
+  //   return {
+  //     ...answer,
+  //     answer: answers[i].answer,
+  //   }
+  // })
+  // createdSurveyResult.markModified("answers")
+  // const foo = await createdSurveyResult.save()
+  // console.log("foo")
+  // console.log(foo)
 
   await Patient.findByIdAndUpdate(patient._id, {
     surveyResults: [...patient.surveyResults, ObjectId(createdSurveyResult._id)],
   })
+
+  res.status(204).send()
 })
 
 module.exports = {

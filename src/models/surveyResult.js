@@ -13,19 +13,7 @@ const surveyResultSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Survey",
     },
-    answers: [
-      {
-        anwser: {
-          type: Boolean,
-          required: true,
-          default: false,
-        },
-        note: {
-          type: String,
-          required: false,
-        },
-      },
-    ],
+    answers: [Boolean],
   },
   {
     timestamps: true,

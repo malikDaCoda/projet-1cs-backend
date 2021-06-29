@@ -4,6 +4,7 @@ const { ObjectId } = require("mongoose").Types
 const Doctor = require("../models/doctor")
 const Patient = require("../models/patient")
 const User = require("../models/user")
+const SurveyResult = require("../models/surveyResult")
 
 const getDoctorByUserId = async (userId) => {
   const doctor = await Doctor.findOne({
@@ -44,10 +45,14 @@ const getPatientById = asyncHandler(async (req, res) => {
 
   const patient = await Patient.findById(patientId)
   const patientUser = await User.findById(patient.user)
+  const patientSurveyResults = await SurveyResult.find({
+    _id: { $in: patient.surveyResults.map((surveyResult) => ObjectId(surveyResult)) },
+  })
 
   res.json({
     ...patient.toJSON(),
     user: patientUser,
+    surveyResults: patientSurveyResults,
   })
 })
 
