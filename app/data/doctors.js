@@ -1,9 +1,9 @@
 const doctors = [
   {
     user: {
-      username: "Docteur1",
-      firstName: "Prénom1",
-      lastName: "Nom1",
+      username: "Boulaouad Adel",
+      firstName: "Adel",
+      lastName: "Boulaouad",
       email: "docteur1@example.com",
       phoneNumber: "0555555551",
       password: "pass1",
@@ -12,9 +12,9 @@ const doctors = [
   },
   {
     user: {
-      username: "Docteur2",
-      firstName: "Prénom2",
-      lastName: "Nom2",
+      username: "Boucherit Safaa",
+      firstName: "Safaa",
+      lastName: "Boucherit",
       email: "docteur2@example.com",
       phoneNumber: "0555555552",
       password: "pass2",

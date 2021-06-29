@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+
+  web:
+    build: .
+    image: healthcare:latest
+    container_name: healthcare
+    ports:
+      - '25413:80'
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    build: ./puppeteer
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - .data:/data/db

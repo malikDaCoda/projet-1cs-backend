@@ -1,9 +1,9 @@
 const patients = [
   {
     user: {
-      username: "Patient1",
-      firstName: "Prénom3",
-      lastName: "Nom3",
+      username: "Mabrouki Malik",
+      firstName: "Malik",
+      lastName: "Mabrouki",
       email: "patient1@example.com",
       phoneNumber: "0555555553",
       password: "pass1",
@@ -12,9 +12,9 @@ const patients = [
   },
   {
     user: {
-      username: "Patient2",
-      firstName: "Prénom4",
-      lastName: "Nom4",
+      username: "Ouchebara Dyna",
+      firstName: "Dyna",
+      lastName: "Ouchebara",
       email: "patient2@example.com",
       phoneNumber: "0555555554",
       password: "pass2",
@@ -23,9 +23,9 @@ const patients = [
   },
   {
     user: {
-      username: "Patient3",
-      firstName: "Prénom5",
-      lastName: "Nom5",
+      username: "Sebaa Souad",
+      firstName: "Souad",
+      lastName: "Sebaa",
       email: "patient3@example.com",
       phoneNumber: "0555555555",
       password: "pass3",
